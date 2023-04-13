@@ -18,7 +18,7 @@ export default function App() {
     
     <View style={styles.container}>
        <View style={styles.container2}>
-      <Image source={require('./assets/ICON.png')} style={styles.logo} />
+      <Image source={require('./assets/iconpng.png')} style={styles.logo} />
       </View>
       <Text style={styles.title}>Login</Text>
       <View style={styles.inputContainer}>
@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
     marginTop: -40,
     justifyContent: 'center',
     alignItems: 'center',
+    marginRight: 16,
   },  
 
   button2:{
@@ -120,8 +121,8 @@ const styles = StyleSheet.create({
 */
 
 // tela de cadastro //
-
 /*
+
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, button } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -174,7 +175,12 @@ export default function App() {
           onChangeText={setSenha}
           secureTextEntry
         />
-      </View>
+         {senha==confirmar ?
+        <Text></Text>
+        :
+        <Text>Senha não esta igual</Text>
+      }
+       </View>
 
       <View style={styles.inputContainer}>
         <FontAwesome5 name="lock" size={15} color="black" />
@@ -268,7 +274,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  buttonVoltar:{
+  buttonVoltar: {
     marginLeft: -250,
     backgroundColor: '#FF0015',
     padding: 10,
@@ -277,7 +283,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
 
-  buttonT:{
+  buttonT: {
     color: '#fff',
     fontWeight: 'bold',
   }
@@ -286,40 +292,45 @@ const styles = StyleSheet.create({
 
 */
 
-// tela de escolha de produto //
+
+// tela de escolha de categoria //
 
 /*
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, Image, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { useState } from 'react';
+import { FontAwesome5 } from '@expo/vector-icons';
 
 export default function App() {
   const [produtos] = useState([
-    { produto: 'Verduras', key: 1 },
-    { produto: 'Frutas', key: 2 },
-    { produto: 'Frios', key: 3 },
-    { produto: 'Carnes', key: 4 },
-    { produto: 'Grãos', key: 5 },
-    { produto: 'Pães', key: 6 },
+    { produto: 'Verduras', key: 1, icon: 'leaf' },
+    { produto: 'Frutas', key: 2, icon: 'apple' },
+    { produto: 'Frios', key: 3, icon: 'cheese' },
+    { produto: 'Carnes', key: 4, icon: 'drumstick-bite' },
+    { produto: 'Grãos', key: 5, icon: 'seedling' },
+    { produto: 'Pães', key: 6, icon: 'bread-slice' },
   ])
 
   return (
     <View>
 
       <View style={styles.container}>
-        <Image source={require('./assets/SuperMobi.png')} style={styles.logo} />
+        <Image source={require('./assets/Logopng.png')} style={styles.logo} />
       </View>
-
+      
       <FlatList
-        numColumns={2}
+        numColumns={1}
         keyExtractor={(item) => item.key}
         data={produtos}
         renderItem={({ item }) => (
           <TouchableOpacity>
-            <Text style={styles.quadrado}>{item.produto}</Text>
+            <View style={styles.item}>
+              <FontAwesome5 name={item.icon} size={24} color="white" />
+              <Text style={styles.quadrado}>{item.produto}</Text>
+            </View>
           </TouchableOpacity>
-        )
-        }
+          
+        )}
       />
     </View>
   );
@@ -332,37 +343,53 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 100,
-    
+    marginTop: 105,
+
   },
 
   quadrado: {
     flex: 1,
-    marginTop: 20,
-    padding: 50,
-    paddingVertical: 63,
-    backgroundColor: 'red',
+    marginTop: 15,
+    paddingVertical: 1,
     fontSize: 24,
-    margin: 5,
+    margin: 20,
     textAlign: 'center',
     justifyContent: 'center',
     color: '#fff',
-    width: 195,
-    height: 180,
+
+  },
+
+  item: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    backgroundColor: 'red',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+
+  itemText: {
+    marginLeft: 20,
+    fontSize: 24,
+    color: '#fff',
+    
   },
 
   logo: {
-    width: 350,
+    width: 300,
     resizeMode: 'contain',
     alignItems: 'center',
     justifyContent: 'center',
     alignContent: 'center',
-    marginBottom: 80,
-    marginLeft: 18,
+    marginBottom: 70,
+    marginRight: 20,
+    width: 280,
+    marginTop: 1,
   },
 
-}
-)
-  ;
+});
+
 */
 
