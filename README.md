@@ -16,9 +16,14 @@
     + expo-go
 - Você terá que abrir o Prompt de comandos. Quando abrir, você vai escrever o seguinte comando. <br>
   + yarn create expo-app my-project(nome da sua escolha).
-- Após isso você vai disponibilizar o QR CODE para utilizar o expo-go utilizando:
+  
+ <h2>Abrindo o SuperMobi no seu Visual Studio Code</h2>
+
+- Você irá baixar os arquivos:       
+    + App.js
+    + Package.json
+    + assets
+- Substitua no projeto que você criou os arquivos baixado no github.  
+- Após isso, no prompt de comandos você vai disponibilizar o QR CODE para utilizar o expo-go utilizando o seguinte comando:
   + yarn start
  - Agora você terá que escanear o QR CODE
-  
-    
-
