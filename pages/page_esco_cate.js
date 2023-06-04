@@ -1,43 +1,34 @@
 // tela de escolha de categoria //
 
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 export function Categoria({ navigation }) {
     const [produtos] = useState([
-        { produto: 'Verduras', key: 1, icon: 'leaf' },
-        { produto: 'Frios', key: 3, icon: 'cheese' },
-        { produto: 'Carnes', key: 4, icon: 'drumstick-bite' },
-        { produto: 'Grãos', key: 5, icon: 'seedling' },
+        { produto: 'Verduras', key: 1, icon: 'leaf', nav: 'Categoria' },
+        { produto: 'Frutas', key: 2, icon: 'apple', nav: 'Frutas' },
+        { produto: 'Frios', key: 3, icon: 'cheese', nav: 'Categoria' },
+        { produto: 'Carnes', key: 4, icon: 'drumstick-bite', nav: 'Categoria' },
+        { produto: 'Grãos', key: 5, icon: 'seedling', nav: 'Categoria' },
     ])
 
     return (
-        <View>
-            <View style={styles.container}>
-                <Image source={require('../assets/Logopng.png')} style={styles.logo} />
-            </View>
-            <TouchableOpacity onPress={() => { navigation.navigate("frutas") }}>
-                        <View style={styles.item}>
-                            <FontAwesome5 name='apple' size={24} color="white" />
-                            <Text style={styles.quadrado}>Frutas</Text>
-                        </View>
-                    </TouchableOpacity>
+        <View style={styles.container}>
+            <Image source={require('../assets/Logopng.png')} style={styles.logo} />
             <FlatList
+                style={styles.flat}
                 numColumns={1}
                 keyExtractor={(item) => item.key}
                 data={produtos}
                 renderItem={({ item }) => (
-                    <TouchableOpacity>
-                        <View style={styles.item}>
+                    <TouchableOpacity style={styles.clicavel} onPress={() => { navigation.navigate(item.nav) }}>
+                        <View style={styles.quadradoDentro}>
                             <FontAwesome5 name={item.icon} size={24} color="white" />
                             <Text style={styles.quadrado}>{item.produto}</Text>
                         </View>
-                    </TouchableOpacity>
-
-                )}
-            />
+                    </TouchableOpacity>)
+                }/>
         </View>
     );
 }
@@ -45,16 +36,36 @@ export function Categoria({ navigation }) {
 const styles = StyleSheet.create({
 
     container: {
-        flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 105,
+    },
 
+    logo: {
+        resizeMode: 'contain',
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignContent: 'center',
+        marginBottom: 20,
+        marginRight: 20,
+        height: 120,
+        width: 280,
+        marginTop: 1,
+    },
+
+    flat:{
+        marginBottom: 70,
+    },
+
+    clicavel:{
+        backgroundColor: 'red',
+        padding: 20,
+        paddingHorizontal: 90,
+        marginVertical: 8,
+        marginHorizontal: 16,
     },
 
     quadrado: {
-        flex: 1,
         marginTop: 15,
         paddingVertical: 1,
         fontSize: 24,
@@ -65,35 +76,10 @@ const styles = StyleSheet.create({
 
     },
 
-    item: {
-        flex: 1,
+    quadradoDentro: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'flex-start',
-        backgroundColor: 'red',
-        padding: 20,
-        marginVertical: 8,
-        marginHorizontal: 16,
-    },
-
-    itemText: {
-        marginLeft: 20,
-        fontSize: 24,
-        color: '#fff',
-
-    },
-
-    logo: {
-        width: 300,
-        resizeMode: 'contain',
-        alignItems: 'center',
         justifyContent: 'center',
-        alignContent: 'center',
-        marginBottom: 70,
-        marginRight: 20,
-        width: 280,
-        marginTop: 1,
     },
-
 });
 

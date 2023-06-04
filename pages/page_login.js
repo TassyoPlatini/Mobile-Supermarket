@@ -42,10 +42,10 @@ export function Login({navigation}) {
                 />
             </View>
 
-            <Button title="Entrar" color="#FF0015" onPress={()=>{navigation.navigate("logado")}}/>
+            <Button title="Entrar" color="#FF0015" onPress={()=>{navigation.navigate("Logado")}}/>
 
             <View style={styles.buttonContainer}>
-                <Button title="Cadastre-se" color="#FF0015" onPress={()=>{navigation.navigate("cadastro")}}/>
+                <Button title="Cadastre-se" color="#FF0015" onPress={()=>{navigation.navigate("Cadastro")}}/>
                                                             
             </View>
         </View>

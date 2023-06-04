@@ -11,8 +11,8 @@ export function Logado() {
   return (
     <NavigationContainer independent={true}>
       <Drawer.Navigator>
-        <Drawer.Screen name="categoria" component={Categoria}/>
-        <Drawer.Screen name="frutas" component={Frutas} />
+        <Drawer.Screen name="Categoria" component={Categoria}/>
+        <Drawer.Screen name="Frutas" component={Frutas} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

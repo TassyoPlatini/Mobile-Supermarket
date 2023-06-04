@@ -1,10 +1,9 @@
 // tela de cadastro //
 
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
-import { Categoria } from './page_esco_cate';
 
 export function Cadastro({navigation}) {
     const [login, setLogin] = useState('');
@@ -27,7 +26,7 @@ export function Cadastro({navigation}) {
 
         <View style={styles.container}>
 
-            <TouchableOpacity style={styles.buttonVoltar} onPress={()=>{navigation.navigate("login")}}>
+            <TouchableOpacity style={styles.buttonVoltar} onPress={()=>{navigation.navigate("Login")}}>
                 <Text style={styles.buttonT}>Voltar</Text>
             </TouchableOpacity>
 
@@ -101,8 +100,8 @@ export function Cadastro({navigation}) {
                     keyboardType='numeric'
                 />
             </View>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("login")}}>
-                <Text style={styles.buttonText}>Cadastrar</Text>
+            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Login")}}>
+                <Text style={styles.buttonText}>Cadastrar-se</Text>
             </TouchableOpacity>
             <View>
 
@@ -120,7 +119,7 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     title: {
-        marginTop: 20,
+        marginTop: 10,
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 20,
@@ -153,10 +152,10 @@ const styles = StyleSheet.create({
     },
 
     buttonVoltar: {
-        marginLeft: -250,
+        marginRight: 290,
         backgroundColor: '#FF0015',
         padding: 10,
-        marginTop: 20,
+        marginTop: 10,
         borderRadius: 6,
         paddingHorizontal: 20,
     },
