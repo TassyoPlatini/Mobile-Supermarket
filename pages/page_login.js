@@ -25,7 +25,6 @@ export function Login({navigation}) {
                 <TextInput
                     style={styles.input}
                     placeholder="Login"
-                    value={login}
                     onChangeText={setLogin}
                     keyboardType="email-address"
                     autoCapitalize="none"
@@ -36,13 +35,12 @@ export function Login({navigation}) {
                 <TextInput
                     style={styles.input}
                     placeholder="Senha"
-                    value={senha}
                     onChangeText={setSenha}
                     secureTextEntry
                 />
             </View>
 
-            <Button title="Entrar" color="#FF0015" onPress={()=>{navigation.navigate("Logado",{login})}}/>
+            <Button title="Entrar" color="#FF0015" onPress={()=>{navigation.navigate("Logado")}}/>
 
             <View style={styles.buttonContainer}>
                 <Button title="Cadastre-se" color="#FF0015" onPress={()=>{navigation.navigate("Cadastro")}}/>
