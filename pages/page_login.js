@@ -16,7 +16,7 @@ export function Login({navigation}) {
     };
     return (
         <View style={styles.container}>
-            <View style={styles.container2}>
+            <View>
                 <Image source={require('../assets/iconpng.png')} style={styles.logo} />
             </View>
             <Text style={styles.title}>Login</Text>
@@ -42,7 +42,7 @@ export function Login({navigation}) {
                 />
             </View>
 
-            <Button title="Entrar" color="#FF0015" onPress={()=>{navigation.navigate("Logado")}}/>
+            <Button title="Entrar" color="#FF0015" onPress={()=>{navigation.navigate("Logado",{login})}}/>
 
             <View style={styles.buttonContainer}>
                 <Button title="Cadastre-se" color="#FF0015" onPress={()=>{navigation.navigate("Cadastro")}}/>

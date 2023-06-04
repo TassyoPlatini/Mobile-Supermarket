@@ -21,6 +21,7 @@ const mercado = {
 };
 
 export function Frutas() {
+    
     const [selecionar, setSelecionar] = useState(null);
 
     const handleSelecionar = (item) => {

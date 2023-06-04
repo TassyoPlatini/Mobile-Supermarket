@@ -9,8 +9,8 @@ const Drawer = createDrawerNavigator();
 
 export function Logado() {
   return (
-    <NavigationContainer independent={true}>
-      <Drawer.Navigator>
+    <NavigationContainer independent={true} options={{ headerShown: false }}>
+      <Drawer.Navigator initialRouteName='Categoria'>
         <Drawer.Screen name="Categoria" component={Categoria}/>
         <Drawer.Screen name="Frutas" component={Frutas} />
       </Drawer.Navigator>

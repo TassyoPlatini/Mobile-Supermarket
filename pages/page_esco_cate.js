@@ -4,7 +4,9 @@ import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react
 import { useState } from 'react';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-export function Categoria({ navigation }) {
+export function Categoria({ navigation, route }) {
+
+
     const [produtos] = useState([
         { produto: 'Verduras', key: 1, icon: 'leaf', nav: 'Categoria' },
         { produto: 'Frutas', key: 2, icon: 'apple', nav: 'Frutas' },
@@ -16,6 +18,7 @@ export function Categoria({ navigation }) {
     return (
         <View style={styles.container}>
             <Image source={require('../assets/Logopng.png')} style={styles.logo} />
+            <Text>Olá {route.params?.login}</Text>
             <FlatList
                 style={styles.flat}
                 numColumns={1}
