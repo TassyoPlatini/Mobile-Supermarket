@@ -1,26 +1,20 @@
-// tela de cadastro //
-
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+import Axios from 'axios';
 
 export function Cadastro({navigation}) {
-    const [login, setLogin] = useState('');
-    const [senha, setSenha] = useState('');
+    const [nome, setNome] = useState('');
+    const [pass, setPass] = useState('');
     const [confirmar, setConfirmar] = useState('');
     const [email, setEmail] = useState('');
     const [telefone, setTelefone] = useState('');
     const [cpf, setCpf] = useState('');
 
-    const handleLogin = () => {
-        console.log('Login: ', login);
-        console.log('Senha: ', senha);
-        console.log('Confirmar Senha: ', confirmar);
-        console.log('Email: ', email);
-        console.log('Telefone: ', telefone);
-        console.log('CPF: ', cpf);
-    };
+    const handleLogin = () =>{
+        Axios.post( "http://192.168.1.212:3001/users", { nome })
+    }
 
     return (
 
@@ -36,8 +30,7 @@ export function Cadastro({navigation}) {
                 <TextInput
                     style={styles.input}
                     placeholder="Login"
-                    value={login}
-                    onChangeText={setLogin}
+                    onChangeText={setNome}
                     keyboardType="email-address"
                     autoCapitalize="none"
                 />
@@ -48,11 +41,10 @@ export function Cadastro({navigation}) {
                 <TextInput
                     style={styles.input}
                     placeholder="Senha"
-                    value={senha}
-                    onChangeText={setSenha}
+                    onChangeText={setPass}
                     secureTextEntry
                 />
-                {senha == confirmar ?
+                {pass == confirmar ?
                     <Text></Text>
                     :
                     <Text>Senha não esta igual</Text>
@@ -100,7 +92,7 @@ export function Cadastro({navigation}) {
                     keyboardType='numeric'
                 />
             </View>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Login")}}>
+            <TouchableOpacity style={styles.button} onPress={()=>{handleLogin(),navigation.navigate("Login")}}>
                 <Text style={styles.buttonText}>Cadastrar-se</Text>
             </TouchableOpacity>
             <View>
@@ -112,11 +104,12 @@ export function Cadastro({navigation}) {
 }
 
 const styles = StyleSheet.create({
+
     container: {
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 20,
+        height: 800,
     },
     title: {
         marginTop: 10,
@@ -132,7 +125,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 16,
         marginVertical: 10,
-        width: '100%',
+        width: '90%',
     },
     input: {
         flex: 1,
@@ -155,7 +148,7 @@ const styles = StyleSheet.create({
         marginRight: 290,
         backgroundColor: '#FF0015',
         padding: 10,
-        marginTop: 10,
+        marginTop: -120,
         borderRadius: 6,
         paddingHorizontal: 20,
     },

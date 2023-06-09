@@ -1,5 +1,3 @@
-// tela de login //
-
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Image, Button, Alert } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -7,13 +5,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 export function Login({navigation}) {
     const [login, setLogin] = useState('');
     const [senha, setSenha] = useState('');
-
-    const handleCadastro = () => {
-        Alert.alert('Cadastro', 'Loading...');
-    };
-    const handleLogin = () => {
-        Alert.alert('Login', 'Senha Incorreta.');
-    };
+    
     return (
         <View style={styles.container}>
             <View>

@@ -1,5 +1,3 @@
-// tela de escolha de categoria //
-
 import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -12,11 +10,12 @@ export function Categoria({ navigation }) {
         { produto: 'Frios', key: 3, icon: 'cheese', nav: 'Categoria' },
         { produto: 'Carnes', key: 4, icon: 'drumstick-bite', nav: 'Categoria' },
         { produto: 'Grãos', key: 5, icon: 'seedling', nav: 'Categoria' },
+        { produto: 'Usuários', key: 6, icon: 'code', nav: 'Users'}
     ])
 
     return (
         <View style={styles.container}>
-            <Image source={require('../assets/Logopng.png')} style={styles.logo} />
+            <Image source={require('../assets/logo.png')} style={styles.logo} />
             <FlatList
                 style={styles.flat}
                 numColumns={1}

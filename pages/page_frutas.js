@@ -1,11 +1,8 @@
-// tela das frutas //
-
 import { useState } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { Header } from '../src/components/headercat/header'
 
 const mercado = {
-    fruta: 'Frutas',
-    logo: require('../assets/iconpng.png'),
     menu: [
         { id: '1', fruta: 'Limão', preco: '0.30', image: require('../assets/limao.png') },
         { id: '2', fruta: 'Banana', preco: '3.00', image: require('../assets/banana.png') },
@@ -42,10 +39,7 @@ export function Frutas() {
     return (
 
         <View style={styles.container}>
-            <View style={styles.superior}>
-                <Image source={mercado.logo} style={styles.logo} />
-                <Text style={styles.mercadofruta}>{mercado.fruta}</Text>
-            </View>
+            <Header/>
             <ScrollView style={styles.menu}>
                 {mercado.menu.map((item) => (
                     <View key={item.id}>
@@ -70,29 +64,17 @@ export function Frutas() {
 }
 
 const styles = StyleSheet.create({
+    
     container: {
         flex: 1,
         backgroundColor: '#fff',
         padding: 20,
     },
-    superior: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginBottom: 20,
-    },
-    logo: {
-        width: 60,
-        height: 60,
-        resizeMode: 'contain',
-        marginRight: 20,
-    },
-    mercadofruta: {
-        fontSize: 24,
-        fontWeight: 'bold',
-    },
+
     menu: {
         flex: 1,
     },
+
     itemContainer: {
         flexDirection: 'row',
         alignItems: 'center',
